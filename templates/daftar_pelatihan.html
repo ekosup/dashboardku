@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Daftar Pelatihan</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Nama Pelatihan</th>
+                            <th>Tanggal Mulai</th>
+                            <th>Tanggal Selesai</th>
+                            <th>PIC Pelatihan</th>
+                            <th>Rating Pelatihan</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Nama Pelatihan</th>
+                            <th>Tanggal Mulai</th>
+                            <th>Tanggal Selesai</th>
+                            <th>PIC Pelatihan</th>
+                            <th>Rating Pelatihan</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        {% for pelatihan in pelatihan %}
+                        <tr>
+                            <td>{{ pelatihan.nama_pelatihan }}</td>
+                            <td>{{ pelatihan.tanggal_mulai }}</td>
+                            <td>{{ pelatihan.tanggal_selesai }}</td>
+                            <td>{{ pelatihan.pic_pelatihan }}</td>
+                            <td>{{ pelatihan.rating_pelatihan }}</td>
+                            <td><a href="{% url 'monitoring:update-pelatihan' pelatihan.pk %}" class="btn btn-info mx-1">Edit</a>
+                                <a href="#" class="btn btn-danger mx-1">Delete</a></td>
+
+                        </tr>
+                        
+                        {% endfor %}
+                        
+                    </tbody>
+                </table>
+
+                <a href="{% url 'monitoring:create-pelatihan' %}" class="btn btn-success">Tambah Pelatihan</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Tambah Pelatihan</h6>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="">
+            {% csrf_token %}
+            {{form.as_p}}
+            <a href="{% url 'monitoring:home' %}" class="btn btn-secondary">Kembali</a>
+            <input class="btn btn-primary" type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <style>
+    a {decoration:None;}
+    </style>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Daftar Rekomendasi</h6>
+        </div>
+        <div class="card-body">
+            <div class="row">
+            {% for r in rekomendasi %}
+                <div class="col-md-6 mb-4">
+                    <a href="#" style="{text-decoration: None;}">
+                    <div class="card {% if r.diselesaikan %}border-left-success{% else %}border-left-warning{% endif %} shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                        {{r.nama_pelatihan}}</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{r.deskripsi}}</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+                </div>                
+            {% endfor %}
+
+            </div>
+        </div>
+        
+    </div>
+
+{% endblock content %}

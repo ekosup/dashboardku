@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container">
+    <div class="card p-5 my-3">
+        <h1 class='mb-3'>Login</h1>
+
+        <form action="" method="post" class='mb-3'>
+            {% csrf_token %}
+            {{form|crispy}}
+            <input type="submit" value="Login">
+        </form>
+
+        <p>Untuk membuat akun silakan <a href="#">hubungi administrator</a></p>
+    </div>
+    
+    </div>
+    
+{% endblock content %}
