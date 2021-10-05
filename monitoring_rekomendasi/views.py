@@ -52,8 +52,15 @@ def home(request):
     percentage_rating = round(avg_rating/5 * 100, 2)
 
     test = Rekomendasi.objects.values_list('deskripsi', flat=True)
-    print(test)
-
+    test = " ".join(list(test)).lower()
+    test = word_count(test)
+    words = []
+    for k, v in test.items():
+        temp = {}
+        temp["word"] = k
+        temp["size"] = v * 15
+        words.append(temp)
+    # print(words)
 
     ## Pass context to template
     context = {
@@ -62,6 +69,7 @@ def home(request):
         'avg_rating' : avg_rating,
         'avg_rating_percent' : percentage_rating,
         'need_attention': rekomendasi,
+        'words': words,
     }
 
     return render(request, 'main.html', context)

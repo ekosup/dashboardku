@@ -21,8 +21,13 @@
 
     <!-- Custom styles for this template-->
     <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
-    {% comment %} Jquery {% endcomment %}
-    <script src="{% static 'js/jquery-3.6.0.js' %}"></script>
+    
+    {% comment %} Charts {% endcomment %}
+    <!-- Load d3.js -->
+    <script src="https://d3js.org/d3.v4.js"></script>
+
+    <!-- Load d3-cloud -->
+    <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
 
 </head>
 
@@ -91,7 +96,7 @@
     </div>
 
     {% include "scripts.html" %}
-
+    
 </body>
 
 </html>
